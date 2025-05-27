@@ -10,11 +10,9 @@
     --cinza-escuro: #333;
     --preto: #000
 }
-
 * {
     box-sizing: border-box;
 }
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -25,14 +23,12 @@ body {
     word-wrap: break-word;
     /* Impede que o texto vaze */
 }
-
 header {
     background-color: var(--verde-principal);
     color: var(--branco);
     padding: 1rem;
     text-align: center;
 }
-
 .container {
     max-width: 1200px;
     /* max-width: 90vw; */
@@ -40,7 +36,6 @@ header {
     padding: 0 1rem;
     width: 100%;
 }
-
 .aula-container {
     display: flex;
     flex-wrap: wrap;
@@ -55,7 +50,6 @@ header {
     /* height: 70%; */
     min-height: 400px;
 }
-
 .descricao {
     flex: 1;
     min-width: 300px;
@@ -67,7 +61,6 @@ header {
     overflow-wrap: break-word;
     /* Quebra palavras longas */
 }
-
 .video-wrapper {
     flex: 1;
     min-width: 300px;
@@ -82,7 +75,6 @@ header {
     /* Altura máxima para vídeos verticais */
     /* margin-bottom: 0.1rem; */
 }
-
 .video-wrapper.coluna {
     display: flex;
     flex-direction: column;
@@ -93,7 +85,6 @@ header {
     /* padding-bottom: 10rem; */
     max-height: unset;
 }
-
 .video-container {
     /* flex: 1; */
     /* min-width: 300px; */
@@ -113,14 +104,12 @@ header {
     background-color: var(--verde-claro);
     /* justify-content: center; */
 }
-
 .video-container.vertical {
     padding-bottom: 177.78%;
     /* Proporção 9:16 para vídeos verticais */
     max-height: 500px;
     /* Altura máxima para vídeos verticais */
 }
-
 .video-container video {
     position: absolute;
     top: 0;
@@ -138,11 +127,9 @@ header {
     /* display: block; */
     background-color: var(--preto);
 }
-
 .video-section {
     margin-bottom: 2rem;
 }
-
 .controles {
     display: flex;
     justify-content: center;
@@ -151,7 +138,6 @@ header {
     flex-wrap: wrap;
     width: 100%;
 }
-
 button {
     background-color: var(--verde-principal);
     color: var(--branco);
@@ -162,11 +148,9 @@ button {
     transition: background-color 0.3s;
     font-size: 0.9rem;
 }
-
 button:hover {
     background-color: var(--verde-hover);
 }
-
 .controles button {
     min-width: 120px;
     /* Largura mínima fixa */
@@ -176,7 +160,6 @@ button:hover {
     flex-shrink: 0;
     /* Impede que os botões encolham */
 }
-
 strong {
     margin-top: auto;
     /* Empurra para baixo */
@@ -184,7 +167,6 @@ strong {
     border-top: 1px dashed rgba(0, 0, 0, 0.2);
     font-size: 0.8rem;
 }
-
 footer {
     background-color: var(--verde-principal);
     color: var(--branco);
@@ -193,7 +175,6 @@ footer {
     margin-top: 2rem;
     font-size: 0.9rem;
 }
-
 /* BTN Download: */
 .pdf-download {
     background-color: var(--cinza-claro);
@@ -202,7 +183,6 @@ footer {
     margin: 1rem 0;
     text-align: center;
 }
-
 .pdf-btn {
     display: inline-block;
     background-color: var(--verde-principal);
@@ -214,20 +194,24 @@ footer {
     transition: transform 0.2s, background-color 0.3s;
     margin-top: 0.3rem;
 }
-
 .pdf-btn:hover {
     background-color: var(--verde-hover);
     transform: translateY(-2px);
 }
-
 .pdf-btn .icon {
     margin-right: 8px;
 }
-
 .pdf-note {
     font-size: 0.85rem;
     color: var(--cinza-medio);
     margin-top: 0.8rem;
+}
+span.logo {
+    font-weight: bold;
+    color: var(--branco);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    letter-spacing: 2px;
 }
 
 /** RESPONSIVIDADE: =============================================================== */
@@ -251,17 +235,40 @@ footer {
     }
 
     .video-container {
+        position: relative;
+        width: 100%;
         /* max-width: 100%; */
         padding-bottom: 56.25%;
         /* Mantém proporção em mobile */
+        height: 0;
     }
-
+    .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* Faz o iframe preencher o container proporcional */
+    }
     .video-container.vertical {
         padding-bottom: 120%;
         /* Ajuste para vertical em mobile */
         max-height: 400px;
     }
-
+    .controles {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        flex-wrap: wrap;
+        /* Deixa os botões centralizados e permite quebra se não couber */
+    }
+    .controles button {
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 8px;
+        /* Botões mais amigáveis para toque */
+    }
     header h1 {
         font-size: 1.4rem;
     }

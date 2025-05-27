@@ -1,24 +1,48 @@
 // Para Controles iFrame x iFrame API:
 
-let player;
+let players = [];
 
 function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    events: {
-      'onReady': onPlayerReady
-    }
+  const iframes = document.querySelectorAll('.aula-video');
+
+  iframes.forEach((iframe) => {
+    const player = new YT.Player(iframe, {
+      events: {
+        'onReady': onPlayerReady,
+        'onStateChange': onPlayerStateChange
+      }
+    });
+    players.push(player);
   });
 }
 
 function onPlayerReady(event) {
-  const playBtn = document.querySelector(".play-btn");
-  playBtn.addEventListener("click", () => {
-    if (player.getPlayerState() === YT.PlayerState.PLAYING) {
-      player.pauseVideo();
-      playBtn.textContent = "Play";
-    } else {
-      player.playVideo();
-      playBtn.textContent = "Pause";
-    }
-  });
+  const container = event.target.getIframe().closest('.video-container');
+  const playButton = container.querySelector('.play-btn');
+
+  if (playButton) {
+    playButton.addEventListener('click', () => {
+      const playerState = event.target.getPlayerState();
+      if (playerState === YT.PlayerState.PLAYING) {
+        event.target.pauseVideo();
+        playButton.textContent = 'Play';
+      } else {
+        event.target.playVideo();
+        playButton.textContent = 'Pause';
+      }
+    });
+  }
+}
+
+function onPlayerStateChange(event) {
+  const container = event.target.getIframe().closest('.video-container');
+  const playButton = container.querySelector('.play-btn');
+
+  if (!playButton) return;
+
+  if (event.data == YT.PlayerState.PLAYING) {
+    playButton.textContent = 'Pause';
+  } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+    playButton.textContent = 'Play';
+  }
 }
