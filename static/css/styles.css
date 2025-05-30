@@ -165,7 +165,8 @@ span.logo {
     margin: 1rem 0;
     text-align: center;
 }
-.pdf-visualizacao {
+/* Cancelei esse Recurso do Projeto: */
+/* .pdf-visualizacao {
     display: none;
     width: 100%;
     border: 2px solid var(--cinza-medio);
@@ -173,7 +174,7 @@ span.logo {
     box-shadow: 0 0 8px rgba(0,0,0,0.1);
     margin-top: 1rem;
     overflow: hidden;
-}
+} */
 .pdf-btn {
     display: inline-block;
     background-color: var(--verde-principal);

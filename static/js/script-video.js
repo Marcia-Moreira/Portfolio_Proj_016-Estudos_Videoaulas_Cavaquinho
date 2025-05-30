@@ -1,4 +1,4 @@
-//! Script Geral: Para usar no "VIDEO", não funciona no "iFRAME"
+//* Script Geral: Para usar no "VIDEO", não funciona no "iFRAME"
 
 // Seleciona todos os vídeos e controles
 document.querySelectorAll(".video-section").forEach((section) => {

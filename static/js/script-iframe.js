@@ -1,4 +1,4 @@
-// Para Controles/Botões iFrame x iFrame API:
+//* Para Controles/Botões iFrame x iFrame API:
 
 let players = [];
 
