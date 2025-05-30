@@ -1,4 +1,4 @@
-// Para Controles iFrame x iFrame API:
+// Para Controles/Botões iFrame x iFrame API:
 
 let players = [];
 
@@ -17,7 +17,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady(event) {
-  const container = event.target.getIframe().closest('.video-container');
+  const container = event.target.getIframe().closest('.video-wrapper');
   const playButton = container.querySelector('.play-btn');
 
   if (playButton) {
@@ -35,7 +35,7 @@ function onPlayerReady(event) {
 }
 
 function onPlayerStateChange(event) {
-  const container = event.target.getIframe().closest('.video-container');
+  const container = event.target.getIframe().closest('.video-wrapper');
   const playButton = container.querySelector('.play-btn');
 
   if (!playButton) return;

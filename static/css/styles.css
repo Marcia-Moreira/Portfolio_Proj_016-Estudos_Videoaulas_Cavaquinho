@@ -1,5 +1,4 @@
-/* Styles Geral: */
-
+/** Styles Geral: =======================================================*/
 :root {
     --verde-principal: #2E7D32;
     --verde-claro: #81C784;
@@ -31,7 +30,6 @@ header {
 }
 .container {
     max-width: 1200px;
-    /* max-width: 90vw; */
     margin: 1rem auto;
     padding: 0 1rem;
     width: 100%;
@@ -39,104 +37,79 @@ header {
 .aula-container {
     display: flex;
     flex-wrap: wrap;
-    /* gap: 2rem; */
-    /* background-color: var(--branco); */
-    /* background-color: var(--verde-claro); */
     background-color: var(--preto);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     overflow: hidden;
     width: 100%;
-    /* height: 70%; */
     min-height: 400px;
 }
 .descricao {
     flex: 1;
-    min-width: 300px;
     padding: 1.5rem;
     background-color: var(--verde-claro);
     color: var(--cinza-escuro);
     display: flex;
     flex-direction: column;
     overflow-wrap: break-word;
-    /* Quebra palavras longas */
+    min-width: 400px;
 }
 .video-wrapper {
     flex: 1;
-    min-width: 300px;
     display: flex;
-    align-items: center;
-    /* Centraliza verticalmente */
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: var(--preto);
+    width: 100%;
+    margin: 20px 0;
     padding: 1rem;
-    /*? Ta dando erro no espaço */
-    max-height: 500px;
-    /* Altura máxima para vídeos verticais */
-    /* margin-bottom: 0.1rem; */
 }
 .video-wrapper.coluna {
     display: flex;
     flex-direction: column;
-    /* Força empilhamento na vertical */
     gap: 1rem;
-    /* Espaçamento entre os vídeos e os elementos */
-    /* padding-top: 10rem; */
-    /* padding-bottom: 10rem; */
     max-height: unset;
 }
 .video-container {
-    /* flex: 1; */
-    /* min-width: 300px; */
     position: relative;
     width: 100%;
-    /* max-width: 640px; */
-    max-width: 100%;
-    height: 0;
-    /* margin: 0 auto; */
-
-    padding-bottom: 56.25%;
-    /* Proporção 16:9 padrão */
-    /* padding-bottom: 56.25%;  */
-    /* Proporção 16:9 */
-    /* height: 0; */
-    /* overflow: hidden; */
-    background-color: var(--verde-claro);
-    /* justify-content: center; */
+    max-width: 560px;
+    margin: 0 auto;
+    padding-bottom: 50px;
 }
 .video-container.vertical {
     padding-bottom: 177.78%;
-    /* Proporção 9:16 para vídeos verticais */
     max-height: 500px;
-    /* Altura máxima para vídeos verticais */
 }
+/* .video-container iframe, */
 .video-container video {
     position: absolute;
     top: 0;
     left: 0;
-    /* position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%; */
     width: 100%;
-    /* height: auto; */
     height: 100%;
     object-fit: contain;
-    /* Mantém proporção sem cortar */
-    /* display: block; */
     background-color: var(--preto);
+}
+.aula-video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    display: block;
+    margin: 0 auto;
 }
 .video-section {
     margin-bottom: 2rem;
 }
 .controles {
+    position: relative;
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 1rem;
-    flex-wrap: wrap;
     width: 100%;
+    flex-wrap: wrap;
 }
 button {
     background-color: var(--verde-principal);
@@ -151,22 +124,23 @@ button {
 button:hover {
     background-color: var(--verde-hover);
 }
+button:active {
+    transform: scale(0.98);
+}
 .controles button {
     min-width: 120px;
-    /* Largura mínima fixa */
-    /* padding: 0.5rem 1rem; */
     padding: 0.5rem;
     text-align: center;
     flex-shrink: 0;
-    /* Impede que os botões encolham */
+    transition: background-color 0.3s ease;
 }
 strong {
     margin-top: auto;
-    /* Empurra para baixo */
     padding-top: 1rem;
     border-top: 1px dashed rgba(0, 0, 0, 0.2);
     font-size: 0.8rem;
 }
+/** ÁREA DO RODAPÉ: ======================================================*/
 footer {
     background-color: var(--verde-principal);
     color: var(--branco);
@@ -175,13 +149,30 @@ footer {
     margin-top: 2rem;
     font-size: 0.9rem;
 }
-/* BTN Download: */
+span.logo {
+    font-weight: bold;
+    color: var(--branco);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+/** ÁREA DE PDF: =============================================================*/
+/* BTN Download ou Visualizar: */
 .pdf-download {
     background-color: var(--cinza-claro);
     padding: 0.5rem;
     border-radius: 8px;
     margin: 1rem 0;
     text-align: center;
+}
+.pdf-visualizacao {
+    display: none;
+    width: 100%;
+    border: 2px solid var(--cinza-medio);
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    margin-top: 1rem;
+    overflow: hidden;
 }
 .pdf-btn {
     display: inline-block;
@@ -206,54 +197,39 @@ footer {
     color: var(--cinza-medio);
     margin-top: 0.8rem;
 }
-span.logo {
-    font-weight: bold;
-    color: var(--branco);
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1rem;
-    letter-spacing: 2px;
-}
-
-/** RESPONSIVIDADE: =============================================================== */
-/* Melhorias para responsividade */
+/** RESPONSIVIDADE DE TELA: =========================================================== */
 @media (max-width: 768px) {
     .aula-container {
         flex-direction: column;
     }
-
     .descricao, .video-wrapper {
         width: 100%;
         min-width: 100%;
         padding: 1rem;
-        /* display: flex;
-                flex-direction: column;
-                margin-right: 0.5rem; */
     }
-
     .video-wrapper {
         max-height: unset;
     }
-
     .video-container {
         position: relative;
         width: 100%;
-        /* max-width: 100%; */
         padding-bottom: 56.25%;
         /* Mantém proporção em mobile */
         height: 0;
+        margin-bottom: 20px; 
     }
     .video-container iframe {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        height: 95%;
+        object-fit: contain;
         /* Faz o iframe preencher o container proporcional */
     }
     .video-container.vertical {
         padding-bottom: 120%;
         /* Ajuste para vertical em mobile */
-        max-height: 400px;
+        max-height: 80vh;
     }
     .controles {
         display: flex;
@@ -261,13 +237,13 @@ span.logo {
         gap: 0.5rem;
         margin-top: 0.5rem;
         flex-wrap: wrap;
-        /* Deixa os botões centralizados e permite quebra se não couber */
+        margin-top: 15px;
+        width: 100%;
     }
     .controles button {
         padding: 0.5rem 1rem;
         font-size: 1rem;
         border-radius: 8px;
-        /* Botões mais amigáveis para toque */
     }
     header h1 {
         font-size: 1.4rem;
@@ -278,34 +254,19 @@ span.logo {
     .descricao {
         padding: 0.5rem;
     }
-
     .descricao h2 {
         font-size: 1.1rem;
     }
-
     .descricao h3 {
         font-size: 1rem;
     }
-
     .video-wrapper {
         padding: 0.5rem;
     }
-
     .video-container.vertical {
         padding-bottom: 150%;
-        /* Mais ajuste para celulares pequenos */
+        /* Mais ajuste para os celulares pequenos */
     }
-
-    .controles {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .controles button {
-        width: 100%;
-        max-width: 200px;
-    }
-
     header h1 {
         font-size: 1.2rem;
     }
